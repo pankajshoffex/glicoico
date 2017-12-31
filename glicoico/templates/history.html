@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+
+{% block style %}
+<style type="text/css">
+	@media screen and (max-width: 767px){
+  .title{
+  	font-size: 25px;
+  }
+}
+</style>
+{% endblock style %}
+
+{% block content %}
+<br><br><br><br>
+<div class="container">
+	<div class="row">
+		
+		<h1 class="title">Transaction History</h1><br>
+		<div class="col-lg-12" style="width: 100%;overflow: scroll;">
+			<br>
+			<table class="table table-bordered" style="text-overflow: text-wrap;">
+				<tr>
+					<td>Transaction Address</td>
+					
+					<td>Transaction  Amount</td>
+					<td>Token</td>
+					<td>Transaction Status</td>
+					<td>Transaction Date</td>
+				</tr>
+			
+				{% for tran in transactions %}
+				
+				<tr>
+					<td>
+						{% if tran.transaction_address_btc %}{{ tran.transaction_address_btc }}{% endif %}
+						{% if tran.transaction_address_eth %}{{ tran.transaction_address_eth }}{% endif %}
+					 </td>
+					
+					<td>{{ tran.value }}</td>
+					<td>{{ tran.token }}</td>
+					<td>{{ tran.transaction_status }}</td>
+					<td>{{ tran.transaction_date }}</td>
+				</tr>
+				{% endfor %}
+			</table>
+			<p class="text-right"> <a href="{% url 'core:userprofile' %}"><span class="fa fa-arrow-left"></span> Back to account</a></p>
+		</div>
+	</div>
+</div>
+{% endblock content %}

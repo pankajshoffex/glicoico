@@ -1,0 +1,68 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+
+{% block style %}
+<style type="text/css">
+	#create_acc{
+		margin-top: 100px;
+    margin-bottom: 100px;
+	}
+
+	.hr-div{
+      	height: 1px;
+      	background-color: gray;
+      	width: 80%;
+      	display: block;
+      	margin: auto;
+      }
+
+    .customeIp{
+      	height: 40px;
+      	border-radius: 0px;
+
+      }
+</style>
+{% endblock style %}
+
+{% block content %}
+
+
+<div class="container">
+	<div class="row">
+		<div class="col-lg-4 col-md-4 col-sm-4"></div>
+		<div class="col-lg-4 col-md-4 col-sm-4" id="create_acc">
+			<h2 class="text-center">Create New Account</h2>
+			<div class="hr-div"></div><br>
+			<form method="post">{% csrf_token %}
+				<input type="email" name="email" class="form-control customeIp" placeholder="Your Email" required>
+        {% if old_acc %}<span style="font-size: 12px;color: red;">Account with this email is already exist.</span><br>{% endif %}
+        <br>
+        <input type="password" id="password" name="password" class="form-control customeIp" placeholder="Password" required><br>
+        <input type="password" id="confirm_password" name="confirm-password" class="form-control customeIp" placeholder="Confirm Password" required><br>
+        <input type="text" {% if code %} value="{{ code }}" {% endif %} name="refral" class="form-control customeIp" placeholder="Referal Code (optional)"><br>
+        <div class="row">
+            <div class="col-lg-2 col-md-2 col-sm-2"></div>
+            <div class="col-lg-8 col-md-8 col-sm-8">
+                <input type="submit" value="Create Account" class="btn btn-block btn-primary">        
+            </div>
+        </div>
+			</form>
+      <br>
+      <a href="{% url 'core:login' %}" style="font-size: 13px;">Already have account</a>
+		</div>	
+	</div>
+</div>
+{% endblock content %}
+
+{% block jquery %}
+<script type="text/javascript">
+  $(document).ready(function(){
+    $('#password, #confirm_password').on('keyup', function () {
+      if ($('#password').val() == $('#confirm_password').val()) {
+       $(':input[type="submit"]').prop('disabled', false);
+      } else 
+        $(':input[type="submit"]').prop('disabled', true);
+    });
+  });
+</script>
+{% endblock jquery %}

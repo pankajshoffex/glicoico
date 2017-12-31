@@ -1,0 +1,82 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+{% block style %}
+<style type="text/css">
+    .bg { 
+        /* The image used */
+        /*background-image: url({% static 'images/bg/1.jpeg' %});*/
+
+        /* Full height */
+        /*height: 92%; */
+
+        /* Center and scale the image nicely */
+        /*background-position: center;*/
+        /*background-repeat: no-repeat;*/
+        /*background-size: cover;*/
+
+        background: linear-gradient(141deg, #0fb8ad 0%, #1fc8db 51%, #2cb5e8 75%);
+    }
+</style>
+{% endblock style %}
+
+{% block content %}
+<div class="container-fluid bg">
+    <br><br><br><br><br><br>
+    <div class="row">
+        <div class="col-lg-6 col-md-6 col-sm-6">
+            <div class="row">
+                <div class="col-lg-1 col-md-1 col-sm-1"></div>
+                <div class="col-lg-10 col-md-10 col-sm-10">
+                    <div class="row">
+                        <div class="col-lg-2 col-md-2 col-sm-2"></div>
+                        <div class="col-lg-8 col-md-8 col-sm-8">
+                            <div style="width: 100%;background-color: #08080845;border-radius: 5px;padding:5px;">
+                                <h5 class="text-center" style="color: white;"><b>LOGIN</b></h5>   
+                                <!-- <img src="{% static 'images/BTPLOGO.png' %}" class="img-responsive" style="height: 100px;display: block;margin: auto;"> -->
+                                <form method="post">{% csrf_token %}
+                                    <br>
+                                    <input type="text" name="email" class="form-control" placeholder="Username" style="border-radius: 0px;background-color: #0000008f;color: white;"><br>
+                                    <input type="password" name="password" class="form-control" placeholder="Password" style="border-radius: 0px;background-color: #0000008f;color: white;">
+                                    <p class="text-right"><a href="" style="font-size: 12px;">Lost Password ?</a></p>
+                                    
+                                    <input type="submit" value="Log in" class="btn btn-block btn-primary" style="border-radius: 0px;">
+                                </form> 
+                                <br>           
+                            </div>
+                            <br><br><br>        
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-6 col-md-6 col-sm-6">
+            <div class="row">
+                <div class="col-lg-1 col-md-1 col-sm-1"></div>
+                <div class="col-lg-10 col-md-10 col-sm-10">
+                    <div style="width: 100%;background-color: #08080845;border-radius: 5px;padding:5px;">
+                        <h5 class="text-center" style="color: white;"><b>CREATE FREE ACCOUNT</b></h5>   
+                        <br>
+                        <form method="post" action="{% url 'core:signup' %}">{% csrf_token %}
+                        <input type="email" name="email" class="form-control" placeholder="Your Email"><br>
+                        <input type="password" name="password" class="form-control" placeholder="Password"><br>
+                        <input type="password" name="confirm-password" class="form-control" placeholder="Confirm Password"><br>
+                        <input type="text" name="refral" class="form-control" placeholder="Referal Code"><br>
+                        <div class="row">
+                            <!-- <div class="col-lg-4 col-md-4 col-sm-4"></div> -->
+                            <div class="col-lg-8 col-md-8 col-sm-8">
+                                <input type="submit" value="Create Account" class="btn btn-block btn-primary">        
+                            </div>
+                        </div>
+                        <br>
+                    </form>            
+                    </div>
+                </div>
+            </div>     
+        </div>
+    </div>
+    <br><br><br><br>
+</div>
+
+    
+{% endblock content %}

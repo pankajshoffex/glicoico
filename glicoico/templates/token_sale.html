@@ -1,0 +1,462 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+
+{% block style %}
+<style type="text/css">
+	.token-top{
+		height: auto;
+		background: red; /* For browsers that do not support gradients */
+    background: -webkit-radial-gradient(#9ef0f9 5%, #119adc 15%, #005180 60%); /* Safari 5.1-6.0 */
+    background: -o-radial-gradient(#9ef0f9 5%, #119adc 15%, #005180 60%); /* For Opera 11.6 to 12.0 */
+    background: -moz-radial-gradient(#9ef0f9 5%, #119adc 15%, #005180 60%); /* For Firefox 3.6 to 15 */
+    background: radial-gradient(#9ef0f9 5%, #119adc 15%, #005180 60%); /* Standard syntax (must be last) */
+}
+  #faqs{
+		color: white;
+		padding: 0px;
+		margin: 0px;
+	}
+
+	#faqs{
+		background-color: #dea131;
+		color: white;
+	}
+	#grad1 {
+	    height: 200px;
+	    background: red; /* For browsers that do not support gradients */    
+	    background: -webkit-linear-gradient(left top, red, yellow); /* For Safari 5.1 to 6.0 */
+	    background: -o-linear-gradient(bottom right, red, yellow); /* For Opera 11.1 to 12.0 */
+	    background: -moz-linear-gradient(bottom right, red, yellow); /* For Firefox 3.6 to 15 */
+	    background: linear-gradient(to bottom right, red, yellow); /* Standard syntax (must be last) */
+	}
+
+  .not-mobile{
+    display: block;
+  }
+
+  .mobile{
+    display: none;
+  }
+
+
+
+  @media screen and (max-width: 767px){
+  .not-mobile{
+    display: none;
+  }
+  .mobile{
+    display: block;
+  }
+
+  .table-responsive {
+    width: 300%;
+    margin-bottom: 15px;
+    overflow-x: auto;
+    overflow-y: hidden;
+    -webkit-overflow-scrolling: touch;
+    -ms-overflow-style: -ms-autohiding-scrollbar;
+    border: 1px solid #DDD;
+}
+  .top-title{
+    font-size: 10px;
+  }
+
+  #tokenTotal{
+    margin-top: -42px;
+  }
+#pre-sale-font{
+    font-size: 10px;
+  }
+}
+</style>
+<script src="{% static 'js/highcharts.js' %}"></script>
+<script src="{% static 'js/exporting.js' %}"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+{% endblock style %}
+
+{% block content %}
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-lg-12 col-md-12 col-sm-12 token-top">
+				
+				<h1 class="text-center" style="padding-top: 100px;color: white;">Token Sale Is Live Now!</h1>
+				<br><br>
+				<div class="row">
+	            <div class="col-lg-2 col-md-2 col-sm-2"></div>
+	            <div class="col-lg-8 col-md-8 col-sm-8">
+	              <div class="timerdiv" style="color: white;">
+	                <div class="clock" id="DateCountdown" data-date="2018-02-16 12:00:00"></div>
+	              </div>  
+	            </div>
+	            </div>
+				<br><br><br><br>
+        <div class="row text-center">
+          <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1"></div>
+          <div class="col-lg-10 col-md-10 col-sm-10 col-xs-10">
+            <!-- <p style="color: white;">Pre-sale completed! <b>8.3M BTP</b> token have been sold.</p> -->
+          </div>
+        </div>
+				<!-- <div class="row">
+					<div class="col-lg-1 col-md-1 col-sm-1 col-xs-1"></div>
+					<div class="col-lg-10 col-md-10 col-sm-10 col-xs-10">
+            <br>
+            <div style="border:1px solid green;padding: 2px;">
+              <div class="progress" style="height: 20px;border-radius: 0px;font-size: 16px;background-color: rgba(266,266,266,0.0);">
+                
+    <div class="progress-bar progress-bar-success" role="progressbar" style="width:{{ ico }}%;background-color: #2a928b;">
+                  <b id="pre-sale-font"><span style="font-size: 11px;">{{ ico }}%</span></b>
+                </div>
+              </div>
+            </div>
+						<div class="row" style="color: white;">
+							<div class="col-lg-6 col-md-6 col-sm-6">
+								<div class="row">
+                  <div class="col-lg-5 col-md-5 col-sm-5">
+                    <p>0</p>    
+                  </div>
+                  <div class="col-lg-6 col-md-6 col-sm-6">
+                    
+                  </div>
+                </div>
+                
+							</div>
+							<div class="col-lg-6 col-md-6 col-sm-6 text-right">
+                <div id="tokenTotal">
+								<span >100%</span>
+                </div>
+							</div>
+						</div>	
+
+						<div class="row">
+							<div class="col-lg-4 col-md-4 col-sm-4"></div>
+							<div class="col-lg-4 col-md-4 col-sm-4">
+								<br>
+								<a href="{% url 'core:userprofile' %}"><button class="btn btn-block btn-primary">Join Now</button></a>
+								<br><br>
+								<br>
+							</div>
+						</div>	
+					</div>
+				</div> -->
+			</div>
+		</div>
+    </div>
+		<section id="about">
+      <div class="container-fluid mobile">
+        <div class="row">
+          <div class="col-lg-12" style="padding-left: 0px;padding-right: 0px;">
+            <table class="table table-responsive" style="font-size: 11px;">
+              <thead>
+                <tr>
+                  <td width="10%"></td>
+                  <td width="45%" class="text-center"><b>ICO PRE-SALE</b></td>
+                  <td width="45%" class="text-center"><b>ICO</b></td>
+                </tr>
+              </thead>
+              <tbody>
+                
+                <tr>
+                  <td width="10%"><b>Timing</b></td>
+                  <td width="45%">
+                    <ul class="text-muted">
+                      <li>Start date: 10 Nov 2017</li>
+                      <li>End date: 29 Nov 2017</li>
+                    </ul>
+                  </td>
+                  <td width="45%">
+                    <ul class="text-muted">
+                      <li>Start date: 17 Dec 2017</li>
+                      <li>End date: 16 Feb 2018</li>
+                    </ul>
+                  </td>
+                </tr>
+
+                <tr>
+                  <td width="10%"><b>Offering Size</b></td>
+                  <td width="45%">
+                    <ul class="text-muted">
+                      <li>8.3 Million BTP at special price of <span style="color: black;font-weight: bold;">40% discount.</span></li>
+                      
+                    </ul>
+                  </td>
+                  <td width="45%">
+                    <ul class="text-muted">
+                      <li>324.9 Million with Extra Bonuses.</li>
+                      
+                    </ul>
+                  </td>
+                </tr>
+
+                <tr>
+                  <td width="10%"><b>Pricing</b></td>
+                  <td width="45%">
+                    <ul class="text-muted">
+                      <!-- <li><span style="color: black;font-weight: bold;">1 BTP = 0.06 $</span></li> -->
+                      <li>1 ETH = 5166 BTP</li>
+                      <li>1 BTC = 112533 BTP</li>
+                      
+                    </ul>
+                  </td>
+                  <td width="45%">
+                    <ul class="text-muted">
+                      <!-- <li><span style="color: black;font-weight: bold;">1 BTP = 0.1 $<span style="color: black;font-weight: bold;"></li> -->
+                      <li>1 ETH = 3100 BTP</li>
+                      <li>1 BTC = 67520 BTP</li>
+                    </ul>
+                  </td>
+                </tr>
+
+                <tr>
+                  <td width="10%"><b>Secure Offer</b></td>
+                  <td width="45%">
+                    <ul class="text-muted">
+                      
+                      <li>BTP tokens are issued for investors only</li>
+                    </ul>
+                  </td>
+                  <td width="45%">
+                    <ul class="text-muted">
+                      <li>ICO funds held in Escrow</li>
+                      
+                      <li>BTP tokens of Founders are non-transferable upon ICO completion - locked 5 month through a smart-contract function</li>
+                    </ul>
+                  </td>
+                </tr>
+
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="container not-mobile">
+        <div class="row">
+          <div class="col-lg-12">
+            <h2 class="section-heading text-uppercase text-center">Offering terms</h2>
+            <br><br>
+            <div class="row">
+              <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+                
+              </div>
+              <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                <h3 class="top-title"><b>ICO PRE-SALE</b></h3>
+              </div>
+              <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                <h3 class="top-title"><b>ICO</b></h3>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-lg-3 col-md-3 col-sm-3">
+                <h3>Timing</h3>
+              </div>
+              <div class="col-lg-4 col-md-4 col-sm-4">
+                <ul class="text-muted">
+                  <li>Start date: 10 Nov 2017</li>
+                  <li>End date: 29 Nov 2017</li>
+                </ul>
+              </div>
+              <div class="col-lg-4 col-md-4 col-sm-4">
+                <ul class="text-muted">
+                  <li>Start date: 17 Dec 2017</li>
+                  <li>End date: 16 Feb 2018</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-lg-3 col-md-3 col-sm-3">
+                <h3>Offering Size</h3>
+              </div>
+              <div class="col-lg-4 col-md-4 col-sm-4">
+                <ul class="text-muted">
+                  <li>8.3 Million BTP at special price of <span style="color: black;font-weight: bold;">40% discount.</span></li>
+                </ul>
+              </div>
+              <div class="col-lg-4 col-md-4 col-sm-4">
+                <ul class="text-muted">
+                  <li>324.9 Million with Extra Bonuses.</li>
+                  
+                </ul>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-lg-3 col-md-3 col-sm-3">
+                <h3>Pricing</h3>
+              </div>
+              <div class="col-lg-4 col-md-4 col-sm-4">
+                <ul class="text-muted">
+                  <!-- <li><span style="color: black;font-weight: bold;">1 BTP = 0.06 $</span></li> -->
+                  <li>1 ETH = 5166 BTP</li>
+                  <li>1 BTC = 112533 BTP</li>
+                  
+                </ul>
+              </div>
+              <div class="col-lg-4 col-md-4 col-sm-4">
+                <ul class="text-muted">
+                  <!-- <li><span style="color: black;font-weight: bold;">1 BTP = 0.1 $<span style="color: black;font-weight: bold;"></li> -->
+                  <li>1 ETH = 3100 BTP</li>
+                  <li>1 BTC = 67520 BTP</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-lg-3 col-md-3 col-sm-3">
+                <h3>Secure Offer</h3>
+              </div>
+              <div class="col-lg-4 col-md-4 col-sm-4">
+                <ul class="text-muted">
+                  
+                  <li>BTP tokens are issued for investors only</li>
+                </ul>
+              </div>
+              <div class="col-lg-4 col-md-4 col-sm-4">
+                <ul class="text-muted">
+                  <li>ICO funds held in Escrow</li>
+                  
+                  <li>BTP tokens of Founders are non-transferable upon ICO completion - locked 5 month through a smart-contract function</li>
+                </ul>
+              </div>
+            </div>
+
+
+          </div>
+        </div>
+      </div>
+    </section>
+		<br><br><br><br>
+		<div class="row">
+			<div class="col-lg-6 col-md-6 col-sm-6">
+				<div id="container" style="min-width: 310px; height: 400px; max-width: 600px; margin: 0 auto"></div>
+			</div>
+			<div class="col-lg-6 col-md-6 col-sm-6">
+				<div id="container1" style="min-width: 310px; height: 400px; max-width: 600px; margin: 0 auto"></div>
+			</div>
+		</div>
+		<br><br><br><br>
+		
+		<!-- <div class="row" id="faqs">
+			<div class="col-lg-1 col-md-1 col-sm-1"></div>
+			<div class="col-lg-10 col-md-10 col-sm-10">
+				<br><br>
+				<h1 class="text-center">FAQ's</h1>
+				<br><br>
+				<ul style="font-size: 20px;list-style: none;font-size: 25px;line-height: 2.2em;">
+					<li><a href="" style="color: white;">Which wallet should I use to store CTX tokens?</a></li>
+					<li><a href="" style="color: white;">What is the gas limit?</a></li>
+					<li><a href="" style="color: white;">Can I participate in the ICO without creating an Ethereum address?</a></li>
+					<li><a href="" style="color: white;">What kind of escrow will you use during the ICO?</a></li>
+					<li><a href="" style="color: white;">What is the legal structure of CarTaxi project?</a></li>
+					<li><a href="" style="color: white;">What type of risks involved in investing?</a></li>
+					<li><a href="" style="color: white;">How I can see my CTX tokens?</a></li>
+				</ul>
+				<br><br><br><br>
+			</div>
+		</div> -->
+	</div>
+	
+	
+	<script type="text/javascript">
+		Highcharts.chart('container', {
+    chart: {
+        plotBackgroundColor: null,
+        plotBorderWidth: null,
+        plotShadow: false,
+        type: 'pie'
+    },
+    title: {
+        text: 'Funds Short-term allocation structure'
+    },
+    exporting: { enabled: false },
+    tooltip: {
+        pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+    },
+    plotOptions: {
+        pie: {
+            allowPointSelect: true,
+            cursor: 'pointer',
+            dataLabels: {
+                enabled: true,
+                format: '<b>{point.name}</b>',
+                //format: '<b>{point.name}</b>: {point.percentage:.1f} %',
+                style: {
+                    color: (Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black'
+                }
+            }
+        }
+    },
+    series: [{
+        name: 'Brands',
+        colorByPoint: true,
+        data: [{
+            name: 'Team. Advisors. Tech. experts',
+            y: 30.33
+        }, {
+            name: 'Legal Fees',
+            y: 5.03,
+            sliced: true,
+            selected: true
+        }, {
+            name: 'Development',
+            y: 55.38
+        }, {
+            name: 'Marketing',
+            y: 9.26
+        }]
+    }]
+});
+	</script>
+	<script type="text/javascript">
+		Highcharts.setOptions({
+     colors: ['#50B432', '#ED561B', '#DDDF00', '#24CBE5', '#64E572', '#FF9655', '#FFF263',      '#6AF9C4']
+    });
+
+		Highcharts.chart('container1', {
+    chart: {
+        plotBackgroundColor: null,
+        plotBorderWidth: null,
+        plotShadow: false,
+        type: 'pie'
+    },
+    title: {
+        text: 'Token Distribution'
+    },
+    exporting: { enabled: false },
+    tooltip: {
+        pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+    },
+    plotOptions: {
+        pie: {
+            allowPointSelect: true,
+            cursor: 'pointer',
+            dataLabels: {
+                enabled: true,
+                format: '<b>{point.name}</b>: {point.percentage:.1f} %',
+                style: {
+                    color: (Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black'
+                }
+            }
+        }
+    },
+    series: [{
+        name: 'Brands',
+        colorByPoint: true,
+        data: [{
+            name: 'Pre-ICO ',
+            y: 1.66
+        }, {
+            name: 'ICO',
+            y: 65,
+            sliced: true,
+            selected: true
+        }, {
+            name: 'Owner',
+            y: 33.34
+        }]
+    }]
+});
+	</script>
+{% endblock content %}

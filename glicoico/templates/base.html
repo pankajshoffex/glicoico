@@ -1,0 +1,339 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>GLICO</title>
+    <!-- <link rel="icon" type="text/css" href="{% static 'images/icon.ico' %}"> -->
+    <!-- Bootstrap core CSS -->
+    <link href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+
+    <!-- Custom fonts for this template -->
+    <link href=" {% static 'vendor/font-awesome/css/font-awesome.min.css' %}" rel="stylesheet" type="text/css">
+    <!-- <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css"> -->
+    <!-- <link href='https://fonts.googleapis.com/css?family=Kaushan+Script' rel='stylesheet' type='text/css'> -->
+    <!-- <link href='https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'> -->
+    <!-- <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'> -->
+
+    <!-- Custom styles for this template -->
+    <link href="{% static 'css/agency.min.css' %}" rel="stylesheet">
+    <link href="{% static 'counter/timeTo.css' %}" type="text/css" rel="stylesheet"/>
+    <style type="text/css">
+      @font-face { 
+        font-family: Franklin; 
+        src: url("{% static 'fonts/libre-franklin/fonts/OTF/LibreFranklin-Thin.otf' %}"); 
+      }
+      .header-text{
+        padding-top: 150px;
+        padding-bottom: 40px;
+      }
+      pre {
+            margin-bottom: 10px;
+            padding-left: 10px;
+            border-left: 3px #DDD solid;
+        }
+
+        #buttons{
+          padding-bottom: 20px;
+        }
+
+        .contri{
+          /*border-radius: 2px;*/
+          background-color: #19928c;
+          color: white;
+          font-family: Franklin;
+          text-transform: none;
+          text-orientation: none;
+          cursor: pointer;
+          text-decoration: none;
+        }
+
+        .contri:hover{
+          background-color: #ffba38;
+        }
+
+        .bal{
+          border-radius: 2px;
+          color: #19928c;
+          border-color: #19928c;
+          font-family: Franklin;
+          background: none; 
+          text-transform: none;
+          text-orientation: none;
+          cursor: pointer;
+          text-decoration: none;
+        }
+
+        .bal:hover{
+          background-color: #ffba38;
+          color: white;
+          border-color: white;
+        }
+
+        .countdown-timer-wrapper {
+  border-radius: 5px;
+  background-color: rgba(0, 0, 0, 0.6);
+  margin-bottom: 20px;
+  max-width: 300px;
+  margin: 50px auto;
+}
+
+.countdown-timer-wrapper h5 {
+  font-size: 14px;
+  letter-spacing: 0.5px;
+  text-align: center;
+  padding-top: 10px;
+  text-shadow: none;
+}
+
+.countdown-timer-wrapper .timer {
+  padding: 10px;
+  text-align: center;
+  padding-top: 15px;
+}
+
+.countdown-timer-wrapper .timer .timer-wrapper {
+  display: inline-block;
+  width: 60px;
+  height: 50px;
+}
+
+.countdown-timer-wrapper .timer .timer-wrapper .time {
+  font-size: 28px;
+  font-weight: bold;
+  color: #ffffff;
+}
+
+.countdown-timer-wrapper .timer .timer-wrapper .text {
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.6);
+}
+.timerdiv{
+  background-color: rgba(0,0,0,0.64);
+  border-radius: 50px;
+}
+  #contribute{
+    background-color: #19928c;
+    border-radius: 30px;
+  }
+
+  #contribute:hover{
+    color: orange  !important;
+  }
+
+#contribute1{
+    background-color: #19928c;
+    border-radius: 30px;
+  }
+
+  #contribute1:hover{
+    color: orange  !important;
+  }
+
+  ::-webkit-input-placeholder { /* WebKit, Blink, Edge */
+    color:    gray !important;
+}
+:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+   color:    gray !important;
+   opacity:  1;
+}
+::-moz-placeholder { /* Mozilla Firefox 19+ */
+   color:    gray !important;
+   opacity:  1;
+}
+:-ms-input-placeholder { /* Internet Explorer 10-11 */
+   color:    gray !important;
+}
+::-ms-input-placeholder { /* Microsoft Edge */
+   color:    gray !important;
+}
+    /*.fixed-top{
+      top:30px !important;
+    }*/
+
+    #promotion{
+          position: fixed;
+          top: 0;
+          right: 0;
+          left: 0;
+          z-index: 1030;
+    }
+
+    @media screen and (max-width: 767px){
+      .header-text{
+        padding-top: 85px;
+        padding-bottom: 40px;
+      }
+    }
+    </style>
+	<!-- Start Alexa Certify Javascript -->
+	<script type="text/javascript">
+	_atrk_opts = { atrk_acct:"FdF6q1kx0820/9", domain:"bitpaid.org",dynamic: true};
+	(function() { var as = document.createElement('script'); as.type = 'text/javascript'; as.async = true; as.src = "https://d31qbv1cthcecs.cloudfront.net/atrk.js"; var s = document.getElementsByTagName('script')[0];s.parentNode.insertBefore(as, s); })();
+	</script>
+	<noscript><img src="https://d5nxst8fruw4z.cloudfront.net/atrk.gif?account=FdF6q1kx0820/9" style="display:none" height="1" width="1" alt="" /></noscript>
+	<!-- End Alexa Certify Javascript -->  
+    {% block style %}
+    {% endblock style %}
+  </head>
+
+  <body id="page-top" style="font-family: Franklin;">
+    <!-- <div id="promotion" style="height: 30px;background-color: orange;" class="text-center"> 
+      <span style="color: white;padding-top: 15px;font-size: 20px;font-weight: bold;"> <span class="fa fa-bullhorn"></span> 40% Off on Pre-Sale.</span>
+    </div> -->
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
+      <div class="container">
+        <a class="navbar-brand js-scroll-trigger" style="font-weight: bolder;" {% if request.path != '/' %} href="/" {% else %} href="#page-top" {% endif %}>GLICO</a>
+        <button class="navbar-toggler navbar-toggler-right" on-click="event.stopPropagation();" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          Menu
+          <i class="fa fa-bars"></i>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav text-uppercase ml-auto">
+            <li class="nav-item">
+              <a class="nav-link js-scroll-trigger" {% if request.path != '/' %} style="color: #ffc107;"  href="/" {% else %} href="#services" {% endif %}>Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link js-scroll-trigger" {% if request.path != '/' %} style="color: #ffc107;" {% endif %} href="{% url 'core:token_sale' %}">Token Sale</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link js-scroll-trigger" {% if request.path != '/' %} style="color: #ffc107;"  href="/" {% else %} href="#roadmap" {% endif %} >Roadmap</a>
+            </li>
+            <!-- <li class="nav-item">
+              <a class="nav-link js-scroll-trigger" {% if request.path != '/' %} style="color: #ffc107;"  href="/" {% else %} href="#team" {% endif %}>Team</a>
+            </li> -->
+            <li class="nav-item">
+              <a class="nav-link js-scroll-trigger" {% if request.path != '/' %} style="color: #ffc107;" {% endif %} href="{% static 'whitepaper/GLICO.pdf' %}" target="_blank">White Paper</a>
+            </li>
+            
+            {% if user.is_authenticated == False %}
+            <li class="nav-item">
+              <a class="nav-link js-scroll-trigger" {% if request.path != '/' %} style="color: #ffc107;" {% else %} {% endif %} href="{% url 'core:userprofile' %}">Sign In</a>
+            </li>
+            {% endif %}
+            
+            {% if user.is_authenticated %}
+            <li class="nav-item">
+              <a class="nav-link js-scroll-trigger" id="contribute1" {% if request.path != '/' %} style="color: #ffc107;" {% else %} {% endif %} href="{% url 'core:userprofile' %}">My Account</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link js-scroll-trigger" {% if request.path != '/' %} style="color: #ffc107;" {% else %} {% endif %} href="{% url 'core:logout' %}">Logout</a>
+            </li>
+            {% else %}
+            <li class="nav-item">
+              <a class="nav-link js-scroll-trigger text-center" id="contribute" {% if request.path != '/' %} style="color: #ffc107;" {% else %} {% endif %} href="{% url 'core:userprofile' %}">Contribute</a>
+            </li>
+            {% endif %}
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    {% block content %}{% endblock content %}
+
+    
+
+    <!-- Footer -->
+    <footer>
+      <div class="container">
+        <div class="row">
+          <div class="col-md-4">
+            <span class="copyright">Copyright &copy; GLICO.IO 2017</span>
+          </div>
+          <div class="col-md-4">
+            <ul class="list-inline social-buttons">
+              <!-- <li class="list-inline-item">
+                <a href="#">
+                  <i class="fa fa-twitter"></i>
+                </a>
+              </li> -->
+              <li class="list-inline-item">
+                <a href="https://www.facebook.com/" target="_blank">
+                  <i class="fa fa-facebook"></i>
+                </a>
+              </li>
+              <li class="list-inline-item">
+                <a href="" target="_blank">
+                  <i class="fa fa-slack"></i>
+                </a>
+              </li>
+            </ul>
+          </div>
+          <div class="col-md-4">
+            <ul class="list-inline quicklinks">
+              <li class="list-inline-item">
+                <a href="#">Privacy Policy</a>
+              </li>
+              <li class="list-inline-item">
+                <a href="#">Terms of Use</a>
+              </li>
+            </ul>
+            
+            <span class="fa fa-envelope"></span> support@glico.io
+          </div>
+        </div>
+      </div>
+    </footer>
+
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="{% static 'vendor/jquery/jquery.min.js' %}"></script>
+    <!-- <script src="{% static 'js/bootstrap.min.js' %}"></script> -->
+    {% block jquery %}{% endblock jquery %}
+    <!-- Timer js files -->
+    <script type="text/javascript" src="{% static 'inc/TimeCircles.js' %}"></script>
+  <link rel="stylesheet" href="{% static 'inc/TimeCircles.css' %}" />
+    <script>
+            $("#DateCountdown").TimeCircles();
+            $("#CountDownTimer").TimeCircles({ time: { Days: { show: false }, Hours: { show: false } }});
+            $("#PageOpenTimer").TimeCircles();
+            
+            var updateTime = function(){
+                var date = $("#date").val();
+                var time = $("#time").val();
+                var datetime = date + ' ' + time + ':00';
+                $("#DateCountdown").data('date', datetime).TimeCircles().start();
+            }
+            $("#date").change(updateTime).keyup(updateTime);
+            $("#time").change(updateTime).keyup(updateTime);
+            
+            // Start and stop are methods applied on the public TimeCircles instance
+            $(".startTimer").click(function() {
+                $("#CountDownTimer").TimeCircles().start();
+            });
+            $(".stopTimer").click(function() {
+                $("#CountDownTimer").TimeCircles().stop();
+            });
+
+            // Fade in and fade out are examples of how chaining can be done with TimeCircles
+            $(".fadeIn").click(function() {
+                $("#PageOpenTimer").fadeIn();
+            });
+            $(".fadeOut").click(function() {
+                $("#PageOpenTimer").fadeOut();
+            });
+
+        </script>
+
+    <script src="{% static 'vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+
+    <!-- Plugin JavaScript -->
+    <script src="{% static 'vendor/jquery-easing/jquery.easing.min.js' %}"></script>
+
+    <!-- Contact form JavaScript -->
+    <script src="{% static 'js/jqBootstrapValidation.js' %}"></script>
+    <script src="{% static 'js/contact_me.js' %}"></script>
+
+    <!-- Custom scripts for this template -->
+    <script src="{% static 'js/agency.min.js' %}"></script>
+
+  </body>
+
+</html>

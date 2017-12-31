@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+{% block style %}
+<style type="text/css">
+	.top{
+		margin-top: 200px;
+	}
+</style>
+<script src="{% static 'js/angular.min.js' %}"></script>
+{% endblock style %}
+{% block content %}
+<div class="container top">
+	<div class="row">
+		<div class="col-lg-4 col-md-4 col-sm-4"></div>
+		<div class="col-lg-4 col-md-4 col-sm-4">
+			<div ng-app="myApp" ng-controller="myCtrl">
+
+			First Name: <input type="number" ng-model="firstName"><br>
+			Last Name: <input type="number" ng-model="lastName"><br>
+			<br>
+			Full Name: <p ng-bind="total"></p>
+
+			</div>
+
+		</div>
+	</div>
+</div>
+{% endblock content %}
+{% block   jquery %}
+<script>
+var app = angular.module('myApp', []);
+app.controller('myCtrl', function($scope) {
+    $scope.firstName = 0;
+    $scope.lastName = 0;
+    $scope.total = $scope.firstName + $scope.lastName;
+});
+</script>
+{% endblock jquery %}

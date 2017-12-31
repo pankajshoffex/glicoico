@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+
+{% block style %}
+<style type="text/css">
+	.resetDiv{
+		margin-top: 100px;
+		margin-bottom: 150px;
+	}
+</style>
+{% endblock style %}
+
+{% block content %}
+<div class="container">
+	<div class="row">
+		<div class="col-lg-4 col-md-4 col-sm-4"></div>
+		<div class="col-lg-4 col-md-4 col-sm-4">
+			<div class="resetDiv">
+				{% if userTrue == True %}
+				<form method="post" action="{% url 'core:reset_password' %}">{% csrf_token %}
+					<h3>Enter New Password</h3>
+					<hr>
+					<input type="password" name="resetPass" placeholder="New Password" class="form-control">
+					<br>
+					<input type="text" name="token" value="{{ request.path }}" hidden>
+					<input type="submit" value="Reset Password" class="btn btn-primary btn-block">
+				</form>
+				{% else %}
+				<h3>This Link is expired.</h3>
+				{% endif %}
+			</div>
+		</div>
+	</div>
+</div>
+{% endblock content %}
