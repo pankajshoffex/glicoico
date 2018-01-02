@@ -39,7 +39,7 @@ class InvoicePayment(models.Model):
     value = models.FloatField(default=0.00)
     is_old_adress = models.BooleanField(default=False)
     created = models.DateTimeField(default=datetime.now, blank=True)
-    btp_rate = models.FloatField(default=112533)
+    btp_rate = models.FloatField(default=53000)
     bonus_percent = models.FloatField(default=15)
 
     def __unicode__(self):
@@ -74,7 +74,7 @@ class EtherScanTransaction(models.Model):
     cumulativeGasUsed = models.TextField(blank=True)
     gasUsed = models.TextField(blank=True)
     confirmations = models.TextField(blank=True)
-    btp_rate = models.FloatField(default=5166)
+    btp_rate = models.FloatField(default=3072)
     bonus_percent = models.FloatField(default=15)
 
     def __unicode__(self):

@@ -49,12 +49,12 @@ def HomePage(request):
         context['pre'] = s.pre_sale
         context['ico'] = s.ico
 
-    context['eth_rate'] = 4650
+    context['eth_rate'] = 3072
     eth_rate = get_todays_value(2)
     if eth_rate:
         context['eth_rate'] = eth_rate
 
-    context['btc_rate'] = 101280
+    context['btc_rate'] = 53000
     btc_rate = get_todays_value(1)
     if btc_rate:
         context['btc_rate'] = btc_rate
@@ -127,7 +127,7 @@ def signup(request, *args, **kwargs):
 
             while True:
                 refral_code = random.randint(100000, 999999)
-                code = 'BTP' + str(refral_code)
+                code = 'GLC' + str(refral_code)
 
                 present = SignUp.objects.filter(referal_code=code).count()
                 if present > 0:
@@ -278,8 +278,8 @@ def GetUserAddress(request):
     invoice = Invoice.objects.filter(user=request.user).first()
     if invoice:
         context['btc_addr'] = invoice.address
-        if invoice.address.replace(" ", "") == '':
-            callback_url = "https://www.glico.io/payment/" + str(
+        if invoice.address.replace(" ", "") == '17KeeBsPVbz83CtbA17KJQamMVSUq1un5X':
+            callback_url = "http://www.glico.io/payment/" + str(
                 invoice.invoice_id) + "/?secret=" + settings.PRIVATE_URL_KEY
             recv = receive(settings.XPUB, callback_url, settings.BLOCK_CHAIN_API_KEY)
             invoice.address = recv.address
@@ -291,7 +291,7 @@ def GetUserAddress(request):
         inv_id = 10001 + invoice_count
         invoice = Invoice.objects.create(
             user=request.user, invoice_id=inv_id)
-        callback_url = "https://www.glico.io/payment/" + str(inv_id) + "/?secret=" + settings.PRIVATE_URL_KEY
+        callback_url = "http://www.glico.io/payment/" + str(inv_id) + "/?secret=" + settings.PRIVATE_URL_KEY
         try:
             recv = receive(settings.XPUB, callback_url, settings.BLOCK_CHAIN_API_KEY)
             invoice.address = recv.address
@@ -332,8 +332,8 @@ def ComingSoon(request):
     return render(request, "coming_soon.html", context)
 
 
-BTP_RATE = 112533
-ETHER_BTP_RATE = 5166
+BTP_RATE = 53000
+ETHER_BTP_RATE = 3072
 
 
 def get_total_tokens_per_user(user):

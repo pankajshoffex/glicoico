@@ -296,7 +296,7 @@ div.close-modal{
           <br class="xs-bn">
           <h1><span id="ico-live">Decentralized Blockchain Lottery</span></h1> 
           <br class="xs-bn"><br class="xs-bn">
-          <h4><span id="ico-end">Invest and receive <span style="color: cyan;">25% bonus</span> today!</span></h4> 
+          <h4><span id="ico-end">Invest and receive <span style="color: cyan;">40% bonus</span> today!</span></h4>
           <br>
           <div class="row">
             <div class="col-lg-2 col-md-2 col-sm-2"></div>
@@ -308,7 +308,7 @@ div.close-modal{
                 <div class="col-lg-3 col-md-3 col-sm-3 col-12 xs-blc">
                   
                   <label>Amount</label>
-                  <input type="text" id="ethQty" style="height: 60px;font-size: 20px;" name="" value="1500" class="form-control">
+                  <input autocomplete="off" min="0" type="number" id="ethQty" style="height: 60px;font-size: 20px;" name="" value="0" class="form-control">
                 </div>
                 <div class="col-lg-9 col-md-9 col-sm-9 col-12 xs-blc">
                   <div class="row">
@@ -316,15 +316,15 @@ div.close-modal{
                       <div class="xs-shw" style="height: 1px;background-color: white;margin: 2px 0px;"></div>
                       <label>Bonus</label>
                       <br><p></p>
-                      <label style="font-size: 20px;font-weight: bold;">+<span id="total-bonus">375</span> GLC</label>
+                      <label style="font-size: 20px;font-weight: bold;">+ <span id="total-bonus">0</span> GLC</label>
                     </div>
                     <div class="col-lg-6 col-md-6 col-sm-6 col-12">
                       <div class="xs-shw" style="height: 1px;background-color: white;margin: 2px 0px;"></div>
                       <label>Currency</label><br>
                       <!-- <input type="text" readonly id="total"> -->
-                      <label><span id="total-eth">0.9999999999000</span> ETH</label>
+                      <label><span id="total-eth">0.00</span> ETH</label>
                       <p style="font-size: 11px;padding-left: 25%;margin-bottom: 0px;margin-top: -8px;">OR</p>
-                      <label><span id="total-btc">0.0695100000000</span> BTC</label>
+                      <label><span id="total-btc">0.00</span> BTC</label>
                     </div>
                     <div class="col-lg-3 col-md-3 col-sm-3 col-12">
                       <br>
@@ -337,16 +337,18 @@ div.close-modal{
                 </div>
               </div>
               
-              <p >1 GLC = 0.0006666666666 ETH &nbsp;|&nbsp;<br class="xs-shw"> 1 GLC = 0.0000463400000 BTC</p> 
+              <p>1 GLC = 0.000033 ETH &nbsp;|&nbsp;<br class="xs-shw"> 1 GLC = 0.000019 BTC | <br class="xs-shw">
+              1 ETH = 3072 GLC &nbsp;|&nbsp;<br class="xs-shw"> 1 BTC = 53000 GLC
+              </p>
               <br>
               <div class="row text-center">
                 <div class="col-lg-4 col-md-4 col-sm-4 col-7">
                   <label>TOKEN FOR SALE</label>
-                  <h2>21,000,000</h2>
+                  <h2>8.3 Million</h2>
                 </div>
                 <div class="col-lg-4 col-md-4 col-sm-4 col-5" style="border-left: 2px solid white;border-right: 2px solid white;">
                   <label>CURRENT BONUS</label>
-                  <h2>25%</h2>
+                  <h2>40%</h2>
                 </div>
                 <div class="col-lg-4 col-md-4 col-sm-4 col-12">
                   <label>PRE ICO ENDS IN</label>
@@ -355,7 +357,7 @@ div.close-modal{
 
                 <div class="col-lg-12">
                   <br><br>
-                  <h3>Token Sale will begin October 21, 2017</h3>
+                  <h3>Token Sale is live now</h3>
                 </div>
               </div>
             </div>
@@ -722,13 +724,26 @@ div.close-modal{
       $(document).ready(function(){
           // Keyup for value
           var qty=$("#ethQty");
+          $(qty).on({
+              'change': function(){
+                  var totaleth=isNaN(parseFloat(parseInt(qty.val()) * 0.000033)) ? 0 : parseFloat(parseInt(qty.val()) * 0.000033).toFixed(8);
+                  var totalbtc=isNaN(parseFloat(parseInt(qty.val()) * 0.000019)) ? 0 : parseFloat(parseInt(qty.val()) * 0.000019).toFixed(8);
+                  var totalbonus=isNaN(parseInt(parseInt(qty.val()) * (40/100))) ? 0 : parseInt(parseInt(qty.val()) * (40/100));
+                  $("#total-eth").html(totaleth);
+                  $("#total-btc").html(totalbtc);
+                  $("#total-bonus").html(totalbonus);
+              },
+              'keyup': function(){
+                  var totaleth=isNaN(parseFloat(parseInt(qty.val()) * 0.000033)) ? 0 : parseFloat(parseInt(qty.val()) * 0.000033).toFixed(8);
+                  var totalbtc=isNaN(parseFloat(parseInt(qty.val()) * 0.000019)) ? 0 : parseFloat(parseInt(qty.val()) * 0.000019).toFixed(8);
+                  var totalbonus=isNaN(parseInt(parseInt(qty.val()) * (40/100))) ? 0 : parseInt(parseInt(qty.val()) * (40/100));
+                  $("#total-eth").html(totaleth);
+                  $("#total-btc").html(totalbtc);
+                  $("#total-bonus").html(totalbonus);
+              }
+          });
           qty.keyup(function(){
-              var totaleth=isNaN(parseInt(qty.val()* 100)) ? 0 :(qty.val()* 100)
-              var totalbtc=isNaN(parseInt(qty.val()* 200)) ? 0 :(qty.val()* 200)
-              var totalbonus=isNaN(parseInt(qty.val()* 20)) ? 0 :(qty.val()* 20)
-              $("#total-eth").html(totaleth);
-              $("#total-btc").html(totalbtc);
-              $("#total-bonus").html(totalbonus);
+
           });
 
           var qty1=$("#btcQty");
@@ -736,14 +751,6 @@ div.close-modal{
               var total1=isNaN(parseInt(qty1.val()* $("#btctoken").val())) ? 0 :(qty1.val()* $("#btctoken").val())
               $("#btctotal").val(total1);
           });
-
-          // keyup value for total
-          // var tot1=$("#total");
-          // qty.keyup(function(){
-          //     var val1=isNaN(parseInt(tot1.val()/ $("#token").val())) ? 0 :(tot1.val()/ $("#token").val())
-          //     $("#ethQty").val(val1);
-          // });
-
 
           setTimeout(function() {
             $("#clickme1").trigger('click');
@@ -753,7 +760,7 @@ div.close-modal{
 
     <script>
 // Set the date we're counting down to
-var countDownDate = new Date("Feb 3, 2018 15:37:25").getTime();
+var countDownDate = new Date("Jan, 11, 2018 15:37:25").getTime();
 
 // Update the count down every 1 second
 var x = setInterval(function() {

@@ -19,7 +19,7 @@ from django.conf import settings
 from django.conf.urls.static import static
 from core.views import ComingSoon, verify_email,HomePage
 
-admin.site.site_header = 'BitPaid Admin'
+admin.site.site_header = 'GLICO Admin'
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),

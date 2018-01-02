@@ -13,8 +13,8 @@ django.setup()
 from core.models import EtherScanTransaction, DiscountTable, BonusTable
 from core.ether_account import Account
 
-ADDRESS = "0x0742D21b67DC40fe6Ad6d82D518392F6697bFb80"
-ETHER_API_KEY = "38908c038bf049d3b9a75984313d406a"
+ADDRESS = "0xfcDBD6eE6990a37aF70dd300ecbF5cd673323C90"
+ETHER_API_KEY = "TC7DFCD3859MFJEMMD86JU7YJI752492G6"
 
 
 def get_ether_data():
