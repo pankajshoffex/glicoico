@@ -145,8 +145,8 @@ def signup(request, *args, **kwargs):
             signup_user.verify_link = random_str
             signup_user.save()
             try:
-                subject, from_email, to = 'GLICO Account Verification.', 'care@glico.org', email
-                text_content = 'Glico Account verification Mail.'
+                subject, from_email, to = 'GLICO Account Verification.', 'support@glico.io', email
+                text_content = 'GLICO Account verification Mail.'
                 html_content = """<!DOCTYPE html>
 								<html>
 								<head>
@@ -233,7 +233,7 @@ def signup(request, *args, **kwargs):
 										Or clicking the following link:<br>
 										<span class="email">http://glico.io/verify/""" + random_str + """</span><br><br><br>
 										<p>
-											Get 15% Pre-sale BTP Bonus on your Referral<br>
+											Get 40% Pre-sale GLC Bonus on your Referral<br>
 											Link:- <b>http://glico.io/signup/""" + str(code) + """</b>
 											<br><br>
 											OR<br><br>
@@ -242,10 +242,10 @@ def signup(request, *args, **kwargs):
 										</p>
 										<p class="disclaimer">PLEASE DO NOT REPLY to this message. This email message was sent from a notification-only address that cannot accept incoming email. You received this email because you registered and accepted an invitation.
 
-										If you have any questions, please feel free to to ask for help. Our support team will be able to help you through email contact@bitair.io.
+										If you have any questions, please feel free to to ask for help. Our support team will be able to help you through email support@glico.io.
 
 										Sincerely, 
-										Bitair team</p>
+										GLICO team</p>
 									</div>
 								</div>
 								</body>
