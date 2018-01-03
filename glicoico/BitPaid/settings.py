@@ -134,10 +134,10 @@ MEDIA_URL = '/media/'
 
 MEDIA_ROOT = os.path.join(os.path.dirname(BASE_DIR), "media_cdn")
 
-EMAIL_HOST = 'smtp.zoho.com'
-EMAIL_HOST_USER = ''
-EMAIL_HOST_PASSWORD = ''
-EMAIL_PORT = 587
+EMAIL_HOST = 'smtpout.secureserver.net'
+EMAIL_HOST_USER = 'support@glico.io'
+EMAIL_HOST_PASSWORD = 'support@glico.io'
+EMAIL_PORT = 465
 EMAIL_USE_TLS = True
 EMAIL_USE_SSL = False
 
