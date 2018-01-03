@@ -136,10 +136,11 @@ MEDIA_ROOT = os.path.join(os.path.dirname(BASE_DIR), "media_cdn")
 
 EMAIL_HOST = 'smtpout.secureserver.net'
 EMAIL_HOST_USER = 'support@glico.io'
-EMAIL_HOST_PASSWORD = 'support@glico.io'
-EMAIL_PORT = 465
-EMAIL_USE_TLS = True
-EMAIL_USE_SSL = False
+EMAIL_HOST_PASSWORD = 'koel@1981'
+DEFAULT_FROM_EMAIL = 'support@glico.io'
+SERVER_EMAIL = 'support@glico.io'
+EMAIL_PORT = 80
+EMAIL_USE_TLS = False
 
 XPUB = 'xpub6DPhsyiwnCgbFgQvHXDxnStqUuDrFZWX3gyK4egxC1nZ8Egtxw6T7GPuwEprmWY91TzWKg9hKUgBRFVyAPtf7MAyC2DThDWGmkkpvhtvaqt'
 BLOCK_CHAIN_API_KEY = 'cc695e58-77a2-486d-8d93-a16fb585d222'
