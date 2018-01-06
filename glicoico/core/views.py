@@ -4,6 +4,8 @@ from __future__ import unicode_literals
 from django.shortcuts import render
 from django.http import HttpResponseRedirect, HttpResponse
 from django.shortcuts import render_to_response
+from django.template.loader import render_to_string
+from django.utils.html import strip_tags
 from django.template import RequestContext
 from django.conf import settings
 from django.db.models import Sum
@@ -147,109 +149,9 @@ def signup(request, *args, **kwargs):
             try:
                 subject, from_email, to = 'GLICO Account Verification.', 'support@glico.io', email
                 text_content = 'GLICO Account verification Mail.'
-                html_content = """<!DOCTYPE html>
-								<html>
-								<head>
-									<title></title>
-									<style type="text/css">
-										.top-body{
-											height: 180px;
-											width: 100%;
-											background-color: #19928c;
-										}
-
-										.main-panel{
-											height: auto;
-											width: 100%;
-										}
-
-										.main-body{
-											background-color: white;
-											font-size: 20px;
-										}
-
-										.verify-button{
-											background-color: white;
-											color: #19928c;
-											border-color: #19928c;
-											margin-left: 20%;
-											height: 50px;
-											width: 150px;
-											font-size: 20px;
-											cursor:pointer;
-										}
-
-										.disclaimer{
-											font-size: 13px;
-											color: gray;
-										}
-
-										body{
-											line-height: 1.8em;
-										}
-
-										.main-panel{
-											width: 100%;
-											display: block;
-											margin: auto;
-											border:2px solid #2a928b;
-											padding: 1%;
-										}
-
-										.email{
-											color: #2a928b;
-											font-size: 17px;
-										}
-
-										.logo{
-											height: 100px;
-											display: block;
-											margin: auto;
-										}
-
-										.title{
-											text-align: center;
-											margin-top: -25px;
-											font-size: 30px;
-											color: white;
-											padding-bottom: 10px;
-										}
-									</style>
-								</head>
-								<body>
-								<div class="main-panel">
-									<div class="top-body">
-										
-										<p class="title">GLICO</p>
-									</div>
-									<div class="main-body">
-										
-										<br><br>
-										Dear <u>""" + str(email) + """,</u><br><br>
-										&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;We are happy to see you joining GLICO..!<br>
-										To activate your wallet, please confirm your email address by clicking Verify Email:<br><br>
-										<a href="http://glico.io/verify/""" + random_str + """"><button class="verify-button">Verify Email</button></a>
-										<br><br>
-										Or clicking the following link:<br>
-										<span class="email">http://glico.io/verify/""" + random_str + """</span><br><br><br>
-										<p>
-											Get 40% Pre-sale GLC Bonus on your Referral<br>
-											Link:- <b>http://glico.io/signup/""" + str(code) + """</b>
-											<br><br>
-											OR<br><br>
-											Referral Code:- <b>""" + str(code) + """</b>
-
-										</p>
-										<p class="disclaimer">PLEASE DO NOT REPLY to this message. This email message was sent from a notification-only address that cannot accept incoming email. You received this email because you registered and accepted an invitation.
-
-										If you have any questions, please feel free to to ask for help. Our support team will be able to help you through email support@glico.io.
-
-										Sincerely, 
-										GLICO team</p>
-									</div>
-								</div>
-								</body>
-								</html>"""
+                template_context = {'code': str(code), 'random_str': random_str, 'email': email}
+                html_content = render_to_string('emailtemp.html', template_context)
+                # text_content = strip_tags(html_content)
                 msg = EmailMultiAlternatives(subject, text_content, from_email, [to])
                 msg.attach_alternative(html_content, "text/html")
                 msg.send()

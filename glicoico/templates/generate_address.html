@@ -42,8 +42,8 @@
         
         
             <p style="color: red;"><span style="font-weight: bold">Note:</span> Do not send ETH from an Exchange
-            If you send ETH to the BitPaid Token Distribution Contract from an exchange account, your BitPaid Tokens will be allocated to the 
-            exchange's ETH account, and you may never receive or be able to recover your BitPaids Tokens.</p> 
+            If you send ETH to the GLC Token Distribution Contract from an exchange account, your GLC Tokens will be allocated to the
+            exchange's ETH account, and you may never receive or be able to recover your GLC Tokens.</p>
         {% else %}
             <div class="col-lg-4 col-md-4 col-sm-4">
                 <h4>Please add your ETH wallet address before making any transactions.</h4>
@@ -54,18 +54,8 @@
 	</div>
 </div>
 
-<!-- <input id="text" type="text" 
-            value="NRIC or Work Permit" style="width:20%"
-            onblur='generateBarCode();' /> --> 
 
 <script type="text/javascript">
-    function generateBarCode()
-    {
-        var nric = $('#text').val();
-        var url = 'https://api.qrserver.com/v1/create-qr-code/?data=' + nric + '&amp;size=50x50';
-        $('#barcode').attr('src', url);
-    }
-
     function generateBarCode()
     {
         var nric = $('#text').val();
