@@ -337,7 +337,7 @@ div.close-modal{
                 </div>
               </div>
               
-              <p>1 GLC = 0.000033 ETH &nbsp;|&nbsp;<br class="xs-shw"> 1 GLC = 0.000019 BTC | <br class="xs-shw">
+              <p>1 GLC = 0.00033 ETH &nbsp;|&nbsp;<br class="xs-shw"> 1 GLC = 0.000019 BTC | <br class="xs-shw">
               1 ETH = 3072 GLC &nbsp;|&nbsp;<br class="xs-shw"> 1 BTC = 53000 GLC
               </p>
               <br>
@@ -726,7 +726,7 @@ div.close-modal{
           var qty=$("#ethQty");
           $(qty).on({
               'change': function(){
-                  var totaleth=isNaN(parseFloat(parseInt(qty.val()) * 0.000033)) ? 0 : parseFloat(parseInt(qty.val()) * 0.000033).toFixed(8);
+                  var totaleth=isNaN(parseFloat(parseInt(qty.val()) * 0.00033)) ? 0 : parseFloat(parseInt(qty.val()) * 0.00033).toFixed(8);
                   var totalbtc=isNaN(parseFloat(parseInt(qty.val()) * 0.000019)) ? 0 : parseFloat(parseInt(qty.val()) * 0.000019).toFixed(8);
                   var totalbonus=isNaN(parseInt(parseInt(qty.val()) * (40/100))) ? 0 : parseInt(parseInt(qty.val()) * (40/100));
                   $("#total-eth").html(totaleth);
@@ -734,7 +734,7 @@ div.close-modal{
                   $("#total-bonus").html(totalbonus);
               },
               'keyup': function(){
-                  var totaleth=isNaN(parseFloat(parseInt(qty.val()) * 0.000033)) ? 0 : parseFloat(parseInt(qty.val()) * 0.000033).toFixed(8);
+                  var totaleth=isNaN(parseFloat(parseInt(qty.val()) * 0.00033)) ? 0 : parseFloat(parseInt(qty.val()) * 0.00033).toFixed(8);
                   var totalbtc=isNaN(parseFloat(parseInt(qty.val()) * 0.000019)) ? 0 : parseFloat(parseInt(qty.val()) * 0.000019).toFixed(8);
                   var totalbonus=isNaN(parseInt(parseInt(qty.val()) * (40/100))) ? 0 : parseInt(parseInt(qty.val()) * (40/100));
                   $("#total-eth").html(totaleth);
