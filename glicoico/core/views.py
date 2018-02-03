@@ -61,6 +61,14 @@ def HomePage(request):
     if btc_rate:
         context['btc_rate'] = btc_rate
 
+    context['bonus_per'] = 40
+
+    today = datetime.datetime.now().date()
+
+    bonus_obj = BonusTable.objects.filter(from_date__lte=today, to_date__gte=today).first()
+    if bonus_obj:
+        context['bonus_per'] = bonus_obj.percentage
+
     if request.method == 'POST':
         email = request.POST.get('email')
         chk_mail = Subscription.objects.filter(email=email)

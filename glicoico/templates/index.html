@@ -296,7 +296,7 @@ div.close-modal{
           <br class="xs-bn">
           <h1><span id="ico-live">Decentralized Blockchain Lottery</span></h1> 
           <br class="xs-bn"><br class="xs-bn">
-          <h4><span id="ico-end">Invest and receive <span style="color: cyan;">40% bonus</span> today!</span></h4>
+          <h4><span id="ico-end">Invest and receive <span style="color: cyan;">{{ bonus_per|floatformat:"0" }}% bonus</span> today!</span></h4>
           <br>
           <div class="row">
             <div class="col-lg-2 col-md-2 col-sm-2"></div>
@@ -349,7 +349,7 @@ div.close-modal{
                 </div>
                 <div class="col-lg-4 col-md-4 col-sm-4 col-5" style="border-left: 2px solid white;border-right: 2px solid white;">
                   <label>CURRENT BONUS</label>
-                  <h2>40%</h2>
+                  <h2>{{ bonus_per|floatformat:"0" }}%</h2>
                 </div>
                 <div class="col-lg-4 col-md-4 col-sm-4 col-12">
                   <label>PRE ICO ENDS IN</label>
