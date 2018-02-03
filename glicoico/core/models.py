@@ -39,7 +39,7 @@ class InvoicePayment(models.Model):
     value = models.FloatField(default=0.00)
     is_old_adress = models.BooleanField(default=False)
     created = models.DateTimeField(default=datetime.now, blank=True)
-    btp_rate = models.FloatField(default=53000)
+    btp_rate = models.FloatField(default=53000, verbose_name="GLC rate")
     bonus_percent = models.FloatField(default=15)
 
     def __unicode__(self):
@@ -74,7 +74,7 @@ class EtherScanTransaction(models.Model):
     cumulativeGasUsed = models.TextField(blank=True)
     gasUsed = models.TextField(blank=True)
     confirmations = models.TextField(blank=True)
-    btp_rate = models.FloatField(default=3072)
+    btp_rate = models.FloatField(default=3072, verbose_name="GLC rate")
     bonus_percent = models.FloatField(default=15)
 
     def __unicode__(self):
@@ -83,13 +83,13 @@ class EtherScanTransaction(models.Model):
 
 class DiscountTable(models.Model):
     CURRENCY_TYPE = (
-        (1, 'BTP'),
+        (1, 'GLC'),
         (2, 'ETHER')
         )
     title = models.CharField(max_length=120, blank=True)
     from_date = models.DateField()
     to_date = models.DateField()
-    btp_rate = models.FloatField()
+    btp_rate = models.FloatField(verbose_name="GLC rate")
     currency_type = models.IntegerField(default=1, choices=CURRENCY_TYPE)
 
     def __unicode__(self):

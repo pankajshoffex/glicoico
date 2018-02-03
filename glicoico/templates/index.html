@@ -307,7 +307,7 @@ div.close-modal{
               <div class="row" style="background-color: rgba(0,0,0,0.90);border-radius: 5px;">
                 <div class="col-lg-3 col-md-3 col-sm-3 col-12 xs-blc">
                   
-                  <label>Amount</label>
+                  <label>Token</label>
                   <input autocomplete="off" min="0" type="number" id="ethQty" style="height: 60px;font-size: 20px;" name="" value="0" class="form-control">
                 </div>
                 <div class="col-lg-9 col-md-9 col-sm-9 col-12 xs-blc">
@@ -318,7 +318,7 @@ div.close-modal{
                       <br><p></p>
                       <label style="font-size: 20px;font-weight: bold;">+ <span id="total-bonus">0</span> GLC</label>
                     </div>
-                    <div class="col-lg-6 col-md-6 col-sm-6 col-12">
+                    <div class="col-lg-5 col-md-5 col-sm-5 col-12">
                       <div class="xs-shw" style="height: 1px;background-color: white;margin: 2px 0px;"></div>
                       <label>Currency</label><br>
                       <!-- <input type="text" readonly id="total"> -->
@@ -326,11 +326,12 @@ div.close-modal{
                       <p style="font-size: 11px;padding-left: 15%;margin-bottom: 0px;margin-top: -8px;">OR</p>
                       <label><span id="total-btc">0.00</span> BTC</label>
                     </div>
-                    <div class="col-lg-3 col-md-3 col-sm-3 col-12">
+                    <div class="col-lg-4 col-md-4 col-sm-4 col-12">
                       <br>
                       <div class="xs-shw" style="height: 1px;background-color: white;margin: 2px 0px;"></div>
-                      <a href="{% url 'core:userprofile' %}">
-                      <button style="height: 60px;cursor: pointer;" class="btn btn-lg btn-warning btn-block">JOIN</button></a>
+                      <a href="{% url 'core:userprofile' %}" style="height: 60px;padding:17px;font-size: medium;" class="btn btn-lg btn-warning btn-block">
+                      CONTRIBUTE
+                      </a>
                       <br>
                     </div>
                   </div>

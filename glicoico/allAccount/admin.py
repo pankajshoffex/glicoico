@@ -37,16 +37,16 @@ class SignUpAdmin(admin.ModelAdmin):
     ]
 
     list_display = ['__unicode__', 'account_verified', 'referal_code',
-                    'sponsered_id', 'eth_address', 'btp_points', 'total_ether', 'btp_bonus']
+                    'sponsered_id', 'eth_address', 'glc_points', 'total_ether', 'glc_bonus']
     search_fields = ['referal_code', 'btc_address', 'eth_address', 'user__username', 'sponsered_id']
 
-    def btp_points(self, obj):
+    def glc_points(self, obj):
         return get_total_ether_tokens_per_user(obj.user)
 
     def total_ether(self, obj):
         return get_total_ether_per_user(obj.user)
 
-    def btp_bonus(self, obj):
+    def glc_bonus(self, obj):
         return get_total_ether_bonus_per_user(obj.user)
 
     class Meta:

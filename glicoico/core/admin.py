@@ -32,15 +32,15 @@ class InvoiceAdmin(admin.ModelAdmin):
         PendingInvoicePaymentAdminInline,
     ]
 
-    list_display = ['invoice_id', 'address', 'user', 'total_btp', 'total_btc', 'total_bonus_btp']
+    list_display = ['invoice_id', 'address', 'user', 'total_glc', 'total_btc', 'total_bonus_glc']
 
-    def total_btp(self, obj):
+    def total_glc(self, obj):
         return get_total_tokens_per_user(obj.user)
 
     def total_btc(self, obj):
         return get_total_btc_per_user(obj.user)
 
-    def total_bonus_btp(self, obj):
+    def total_bonus_glc(self, obj):
         return get_total_bonus_per_user(obj.user)
 
     class Meta:
