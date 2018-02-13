@@ -348,6 +348,20 @@ def get_total_bonus_per_user(user):
                             total_value = total_value + bonus_value
                             total_referal_amount = total_referal_amount + total_value
 
+    invoiceObj = Invoice.objects.filter(user=user).first()
+    if invoiceObj:
+        confirm_invoices = InvoicePayment.objects.filter(invoice=invoiceObj).values(
+            'transaction_hash', 'value', 'btp_rate', 'bonus_percent')
+        if confirm_invoices:
+            temp_trans_list = []
+            total_value = 0
+            for obj in confirm_invoices:
+                if obj['transaction_hash'] not in temp_trans_list:
+                    temp_trans_list.append(obj['transaction_hash'])
+                    temp_value = obj['value'] * obj['btp_rate']
+                    bonus_value = (temp_value * obj['bonus_percent']) / 100
+                    total_value = total_value + bonus_value
+                    total_referal_amount = total_referal_amount + total_value
     return total_referal_amount
 
 
